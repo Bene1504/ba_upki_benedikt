@@ -1,0 +1,71 @@
+data:
+  downsample: 1
+  window_size: 150     
+  stride: 30           
+  learning_rate: 0.001
+  
+  mosurf_path: "/home/traju/data_share/MoSurf/MoSurf_synangle/"
+  synthetic_path: "/home/traju/data_share/MoSurf/Syn_data_9/syntheticdata_mergedCSV"
+  lookup_csv_path: "/home/traju/loki/joint_imu_lookup.csv"
+
+  #mosurf_path: "/Users/thejaswini/Desktop/studyproject/MoSurf_synangle/"
+  #synthetic_path: "/Users/thejaswini/Desktop/studyproject/Syn_data_9/syntheticdata_mergedCSV"
+  #lookup_csv_path: "/Users/thejaswini/Desktop/studyproject/ma_project_thejaswini/joint_imu_lookup.csv"
+
+
+  participant_list:
+    - AMOAS01
+    - AMOAS02
+    - AMOAS03
+    - AMOAS04
+    #- AMOAS05 # for jumping ADL remove this while training
+    - AMOAS06
+    - AMOAS07
+    - AMOAS08
+    #- AMOAS09 # for jumping ADL remove this while training
+    - AMOAS010
+    - AMOAS011
+    - AMOAS012
+    - AMOAS013
+    - AMOAS014
+    - AMOAS015
+    - AMOAS016
+    - AMOAS017
+    - AMOAS018
+
+  target_joint: "hip_flexion_l"
+
+  imu_list:
+    - Head
+    - Upper Thoracic
+    - Left Upper Arm
+    - Left Forearm
+    - Right Upper Arm
+    - Right Forearm
+    - Lower Thoracic
+    - Pelvis
+    - Left Thigh
+    - Left Shank
+    - Left Foot
+    - Right Thigh
+    - Right Shank
+    - Right Foot
+
+  activity_list:
+    - getting_up_floor.csv
+    - jumping.csv
+    - picking_up_pen.csv
+    - shelve_ordering.csv
+    - stair_climbing_up.csv
+    - stair_climbing_down.csv
+    - walking_1.csv
+    - walking_2.csv
+    - walking_3.csv
+    - walking_4.csv
+    - walking_5.csv
+    - walking_6.csv
+    - timed_up_go.csv
+    - static.csv
+    - walking_combined.csv
+
+

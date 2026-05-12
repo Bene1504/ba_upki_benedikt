@@ -1,0 +1,97 @@
+{
+  "dataset_name": "All_subjects_data.h5",
+  "dataset_path": "/home/benedikt_nothhelfer/data_share/ULTra-MoCap/ULTra-MoCap-processed/",
+  "dl_dataset_path": "/home/benedikt_nothhelfer/data_share/ULTra-MoCap/",
+  "dl_dataset": "ultramocap_dataset.p",
+  "selected_data_types": ["baseline"],
+  "selected_data_status": ["imu"],
+
+  "results_path": "/home/benedikt_nothhelfer/ba_upki_benedikt/projects/UpKi_BioMat_Ultra/results",
+
+  "imu_features": ["ACCX", "ACCY", "ACCZ", "GYROX", "GYROY", "GYROZ"],
+  "sensor_names":["hand(1)","wrist(2)","Forearm(3)","Biceps(4)","Triceps(5)","Deltoid(6)"],
+  "imu_sensors": ["1", "2", "3", "4", "5", "6"],
+  "imu_sensors6": ["3", "4", "5", "6"],
+  "imu_sensors5": ["1", "2", "3"],
+  "selected_imu_features": ["ACCX", "ACCY", "ACCZ", "GYROX", "GYROY", "GYROZ"],
+  "sensor_name-":["hand(1)","wrist(2)","Forearm(3)","Biceps(4)","Triceps(5)","Deltoid(6)"],
+  "selected_sensors": ["1", "2", "3", "4", "5", "6"],
+  "selected_sensors6": [ "3", "4", "5", "6"],
+  "selected_sensors5": ["1", "2", "3"],
+  
+  
+  "selected_opensim_labels": ["arm_flex_r", "arm_add_r", "arm_rot_r", "elbow_flex_r", "pro_sup_r", "wrist_flex_r", "wrist_dev_r"],
+  "selected_opensim_labels7": ["arm_add_r"],
+  "selected_opensim_labels6": ["arm_flex_r", "arm_add_r", "arm_rot_r", "elbow_flex_r"],
+  "selected_opensim_labels5": [ "pro_sup_r", "wrist_flex_r", "wrist_dev_r"],
+  
+  "selected_opensim_labels2": ["arm_flex_r", "arm_add_r", "arm_rot_r", "elbow_flex_r", "pro_sup_r", "wrist_flex_r", "wrist_dev_r",
+  "arm_flex_l", "arm_add_l", "arm_rot_l", "elbow_flex_l", "pro_sup_l", "wrist_flex_l", "wrist_dev_l"],
+
+
+
+  "selected_trial_type": ["AS", "CB", "EF", "ER", "OR"],
+  "selected_trial_speeds": ["F", "N", "S", "VF"],
+  "selected_activity_label": ["all"],
+  
+  "segmentation_method": "fixedwindow",
+  "data_transformer": {"data_transformer_method": "StandardScaler", "data_transformer_by": "by_var"},
+  "target_padding_length": 256,
+  "overlap": 0.5,
+  "resample": false,
+  "opensim_filter": false,
+  "imu_filter": false,
+
+  
+  
+  "load_model": false,
+  "save_model": false,
+  "tuning": false,
+  "individual_plot": false,
+
+  "train_subjects": ["subject_1","subject_2","subject_3","subject_4","subject_5","subject_6","subject_7","subject_8","subject_9","subject_10","subject_11","subject_12"],
+  "model_train_activity": ["g1","g2","ra", "rd", "sa", "sd"],
+
+  "train_activity": ["AS", "CB", "EF", "ER", "OR"],
+  
+  "train_activity_speed": ["F", "N", "S", "VF"],
+  "test_subjects": ["subject_13"],
+  "lopo_subjects": ["subject_1","subject_2","subject_3","subject_4","subject_5","subject_6","subject_7","subject_8","subject_9","subject_10","subject_11","subject_12","subject_13"],
+ 
+  "test_activity": ["AS", "CB", "EF", "ER", "OR"],
+  
+  "test_activity_speed": ["F", "N", "S", "VF"],
+ 
+  
+
+  "device": "cuda",
+  "model_name": "hernandez2021cnnlstm",
+  "training_style": "lopo",
+
+  "classification": false,
+  "trainable_layers": ["fc1", "fc2_1", "fc2_2", "fc2_3"],
+  "optimizer_name": "Adam",
+  "l2_weight_decay_status": true,
+  "l2_weight_decay": 0.001,
+
+  "bilstm_hidden_size": 64,
+  "bilstm_num_layers": 3,
+  "bilstm_dropout_p": 0.5,
+  "output_size1": 1600,
+
+  "tsai_d_model": 128,
+  "tsai_n_heads": 16,
+  "tsai_d_ff": 256,
+  "tsai_n_layers": 3,
+  "tsai_res_dropout_p": 0.5,
+  "tsai_fc_dropout_p": 0.5,
+
+
+
+  "learning_rate": 0.001,
+  "n_epoch": 100,
+  "batch_size": 32,
+  "loss": "MSE",
+  "loss_weight": [1, 1, 1, 1, 1, 1, 1],
+  "nfold": 5
+}

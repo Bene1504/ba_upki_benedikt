@@ -1,0 +1,29 @@
+name: sweep_mosurf_bilstm2
+program: sweep_main.py
+method: random
+metric:
+  name: lopo_RMSE_overall_mean
+  goal: minimize
+
+parameters:
+  learning_rate:
+    distribution: categorical
+    values: [0.001, 0.0001, 0.00001]
+  n_epoch:
+    distribution: categorical
+    values: [50, 70, 100]
+  batch_size:
+    distribution: categorical
+    values: [16, 32]
+  l2_weight_decay:
+    distribution: categorical
+    values: [0.0001, 0.001, 0.01]
+  bilstm_hidden_size:
+    distribution: categorical
+    values: [64, 128]
+  bilstm_num_layers:
+    distribution: categorical
+    values: [2, 3, 4]
+  bilstm_dropout_p:
+    distribution: categorical
+    values: [0.1, 0.3, 0.5]

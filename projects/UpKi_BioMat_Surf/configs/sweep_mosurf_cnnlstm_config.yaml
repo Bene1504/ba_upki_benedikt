@@ -1,0 +1,41 @@
+name: sweep_mosurf_cnnlstm2
+program: sweep_main.py
+method: random
+metric:
+  name: lopo_RMSE_overall_mean
+  goal: minimize
+
+parameters:
+  learning_rate:
+    distribution: categorical
+    values: [0.001, 0.0001, 0.00001]
+  n_epoch:
+    distribution: categorical
+    values: [50, 70, 100]
+  batch_size:
+    distribution: categorical
+    values: [16, 32, 64]
+  l2_weight_decay:
+    distribution: categorical
+    values: [0.0001, 0.001, 0.01]
+  EncoderCNN_conv_l1_out_channel:
+    distribution: categorical
+    values: [16, 32]
+  EncoderCNN_conv_l2_out_channel:
+    distribution: categorical
+    values: [32, 64]
+  EncoderCNN_conv_l1_dropout:
+    distribution: categorical
+    values: [0.1, 0.2, 0.3]
+  EncoderCNN_conv_l2_dropout:
+    distribution: categorical
+    values: [0.1, 0.2, 0.3]
+  DecoderLSTM_hidden_size:
+    distribution: categorical
+    values: [64, 128, 256]
+  DecoderLSTM_num_layers:
+    distribution: categorical
+    values: [2, 3]
+  DecoderLSTM_dropout_p:
+    distribution: categorical
+    values: [0.1, 0.2, 0.3]

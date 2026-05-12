@@ -1,0 +1,100 @@
+{
+  "dataset_name": "mosurf",
+  "dataset_path": "/home/benedikt_nothhelfer/data_share/MoSurf_Daten/MoSurf_synangle/",
+  "dl_dataset_path": "/home/benedikt_nothhelfer/data_share/MoSurf_Daten/",
+  "dl_dataset": "mosurf_dataset.p",
+
+  "results_path": "/home/benedikt_nothhelfer/ba_upki_benedikt/projects/UpKi_BioMat_Surf/results",
+
+  "selected_imu_features": ["ACCX", "ACCY", "ACCZ", "GYROX", "GYROY", "GYROZ"],
+  "selected_sensors": ["UpperThoracic", "LeftUpperArm", "LeftForearm", "RightUpperArm", "RightForearm"],
+
+  "noraxon_sensor_mapping": {
+    "UpperThoracic": "Noraxon MyoMotion Raw.Upper Thoracic",
+    "LeftUpperArm":  "Noraxon MyoMotion Raw.Left Upper Arm",
+    "LeftForearm":   "Noraxon MyoMotion Raw.Left Forearm",
+    "RightUpperArm": "Noraxon MyoMotion Raw.Right Upper Arm",
+    "RightForearm":  "Noraxon MyoMotion Raw.Right Forearm"
+  },
+  "noraxon_feature_mapping": {
+    "ACCX": "Accel X", "ACCY": "Accel Y", "ACCZ": "Accel Z",
+    "GYROX": "Gyro X", "GYROY": "Gyro Y", "GYROZ": "Gyro Z"
+  },
+
+  "selected_opensim_labels": [
+    "shoulder_elv_r", "shoulder_rot_r", "elv_angle_r", "elbow_flexion_r", "pro_sup_r",
+    "shoulder_elv_l", "shoulder_rot_l", "elv_angle_l", "elbow_flexion_l", "pro_sup_l"
+  ],
+
+  "activity_list_csv": ["picking_up_pen.csv", "shelve_ordering.csv"],
+  "activity_list":     ["picking_up_pen", "shelve_ordering"],
+
+  "selected_trial_type": ["picking_up_pen", "shelve_ordering"],
+  "selected_activity_label": ["all"],
+  "segmentation_method": "fixedwindow",
+  "data_transformer": {"data_transformer_method": "StandardScaler", "data_transformer_by": "by_var"},
+  "target_padding_length": 256,
+  "overlap": 0.3,
+  "resample": false,
+  "opensim_filter": true,
+  "imu_filter": true,
+  "y_scaling": false,
+
+  "load_model": false,
+  "save_model": true,
+  "tuning": false,
+  "individual_plot": false,
+
+  "train_subjects": ["AMOAS02","AMOAS03","AMOAS04","AMOAS05","AMOAS06","AMOAS07","AMOAS08","AMOAS09","AMOAS010","AMOAS011","AMOAS012","AMOAS013","AMOAS014","AMOAS015","AMOAS016","AMOAS017","AMOAS018","AMOAS019"],
+  "test_subjects": ["AMOAS01"],
+  "lopo_subjects": ["AMOAS01","AMOAS02","AMOAS03","AMOAS04","AMOAS05","AMOAS06","AMOAS07","AMOAS08","AMOAS09","AMOAS010","AMOAS011","AMOAS012","AMOAS013","AMOAS014","AMOAS015","AMOAS016","AMOAS017","AMOAS018","AMOAS019"],
+  "train_activity": ["picking_up_pen", "shelve_ordering"],
+  "test_activity": ["picking_up_pen", "shelve_ordering"],
+
+  "device": "cuda",
+  "model_name": "bilstm",
+  "training_style": "lopo",
+
+  "classification": false,
+  "optimizer_name": "Adam",
+  "l2_weight_decay_status": true,
+  "l2_weight_decay": 0.001,
+
+  "bilstm_hidden_size": 64,
+  "bilstm_num_layers": 2,
+  "bilstm_dropout_p": 0.3,
+  "output_size1": 1600,
+
+  "EncoderCNN_conv_l1_in_channel": null,
+  "EncoderCNN_conv_l1_out_channel": 16,
+  "EncoderCNN_conv_l1_kernel_size": [10, 3],
+  "EncoderCNN_l1_maxpool": 2,
+  "EncoderCNN_conv_l1_dropout": 0.2,
+  "EncoderCNN_conv_l2_in_channel": null,
+  "EncoderCNN_conv_l2_out_channel": 32,
+  "EncoderCNN_conv_l2_kernel_size": [10, 3],
+  "EncoderCNN_l2_maxpool": 2,
+  "EncoderCNN_conv_l2_dropout": 0.3,
+  "EncoderCNN_cnn_fc1_in_feature": null,
+  "EncoderCNN_cnn_fc1_out_feature": null,
+  "EncoderCNN_fc1_dropout": 0.2,
+  "DecoderLSTM_input_size": null,
+  "DecoderLSTM_hidden_size": 64,
+  "DecoderLSTM_num_layers": 3,
+  "DecoderLSTM_dropout_p": 0.1,
+  "CNNLSTM_fc1_in_feature": null,
+
+  "tsai_d_model": 128,
+  "tsai_n_heads": 16,
+  "tsai_d_ff": 256,
+  "tsai_n_layers": 3,
+  "tsai_res_dropout_p": 0.5,
+  "tsai_fc_dropout_p": 0.5,
+
+  "learning_rate": 0.001,
+  "n_epoch": 100,
+  "batch_size": 16,
+  "loss": "MSE",
+  "loss_weight": [1,1,1,1,1,1,1,1,1,1],
+  "nfold": 5
+}

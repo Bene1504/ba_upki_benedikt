@@ -1,0 +1,8 @@
+Model training using adaptive learning rate optimization with learning rate of 0.001, batch size of 50, and 50 epochs.
+Hyperparameters for BioMAT were selected after tuning with a 5-fold cross-validation by subjects on training data across all five activities.fiveactivities
+after training on the combined dataset of all activities, performance metrics of each model were reported for predictions of each individual activity and predictions across all activities combined
+
+models were re-trained for each activity seperately and the predictions  tested  on that same activity as well as for activities  not included in the training set.
+
+Dataloader lädt Daten zufällig, damit sich das Model nicht auf spezifische Reihenfolge optimiert
+

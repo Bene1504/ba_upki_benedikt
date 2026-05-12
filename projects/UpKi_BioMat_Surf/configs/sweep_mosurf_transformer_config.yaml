@@ -1,0 +1,38 @@
+name: sweep_mosurf_transformer2
+program: sweep_main.py
+method: random
+metric:
+  name: lopo_RMSE_overall_mean
+  goal: minimize
+
+parameters:
+  learning_rate:
+    distribution: categorical
+    values: [0.001, 0.0001, 0.00001]
+  n_epoch:
+    distribution: categorical
+    values: [50, 70, 100]
+  batch_size:
+    distribution: categorical
+    values: [8, 16, 32]
+  l2_weight_decay:
+    distribution: categorical
+    values: [0.0001, 0.001, 0.01]
+  tsai_d_model:
+    distribution: categorical
+    values: [64, 128]
+  tsai_n_heads:
+    distribution: categorical
+    values: [4, 8]
+  tsai_d_ff:
+    distribution: categorical
+    values: [128, 256, 512]
+  tsai_n_layers:
+    distribution: categorical
+    values: [2, 3, 4]
+  tsai_res_dropout_p:
+    distribution: categorical
+    values: [0.1, 0.3, 0.5]
+  tsai_fc_dropout_p:
+    distribution: categorical
+    values: [0.1, 0.3, 0.5]

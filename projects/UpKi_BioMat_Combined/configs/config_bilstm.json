@@ -1,0 +1,8 @@
+{
+  
+  "target_padding_length": 256,
+  "bilstm_hidden_size": 32,
+  "bilstm_num_layers": 1,
+  "bilstm_dropout_p": 0.5,
+  "output_size1": 1600
+}

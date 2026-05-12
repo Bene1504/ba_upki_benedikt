@@ -1,0 +1,105 @@
+{
+  "dataset_name": "combined",
+  "dl_dataset_path": "/home/benedikt_nothhelfer/data_share/",
+  "dl_dataset": "combined_dataset.p",
+  "ultra_dl_dataset_path": "/home/benedikt_nothhelfer/data_share/ULTra-MoCap/",
+  "ultra_dl_dataset":   "ultramocap_dataset.p",
+  "surf_dl_dataset_path": "/home/benedikt_nothhelfer/data_share/MoSurf_Daten/",
+  "surf_dl_dataset":    "mosurf_dataset.p",
+  
+  "results_path": "/home/benedikt_nothhelfer/ba_upki_benedikt/projects/UpKi_BioMat_Combined/results",
+
+  "selected_imu_features": ["ACCX", "ACCY", "ACCZ", "GYROX", "GYROY", "GYROZ"],
+
+  "selected_sensors": ["UA_R", "FA_R", "UA_L", "FA_L"],
+
+  "sensor_names_ultra":["hand(1)","wrist(2)","Forearm(3)","Biceps(4)","Triceps(5)","Deltoid(6)"],
+  
+  "ultra_sensor_mapping": {
+    "UA_R": "4",
+    "FA_R": "2",
+    "UA_L": null,
+    "FA_L": null
+  },
+  "surf_sensor_mapping": {
+    "UA_R": "RightUpperArm",
+    "FA_R": "RightForearm",
+    "UA_L": "LeftUpperArm",
+    "FA_L": "LeftForearm"
+  },
+
+  "selected_opensim_labels": ["elbow_flex_r","elbow_flex_l"],
+  "selected_opensim_labels2": ["elbow_flex_r", "pro_sup_r","elbow_flex_l", "pro_sup_l"],
+
+  "ultra_label_mapping": {
+    "elbow_flex_r": "elbow_flex_r",
+    "pro_sup_r":    "pro_sup_r",
+    "elbow_flex_l": "elbow_flex_l",   
+    "pro_sup_l":    "pro_sup_l"
+  },
+  "surf_label_mapping": {
+    "elbow_flex_r": "elbow_flexion_r",
+    "pro_sup_r":    "pro_sup_r",
+    "elbow_flex_l": "elbow_flexion_l",
+    "pro_sup_l":    "pro_sup_l"
+  },
+
+  "selected_trial_type": ["AS", "CB", "EF", "ER", "OR",
+                           "picking_up_pen", "shelve_ordering"],
+  "selected_activity_label": ["all"],
+
+  "segmentation_method": "fixedwindow",
+  "data_transformer": {"data_transformer_method": "StandardScaler", "data_transformer_by": "by_var"},
+  "target_padding_length": 256,
+  "overlap": 0.5,
+  "resample": false,
+  "opensim_filter": false,
+  "imu_filter": false,
+
+  "load_model": false,
+  "save_model": false,
+  "tuning": false,
+  "individual_plot": false,
+
+  "train_subjects": ["ultra_subject_1", "ultra_subject_2", "ultra_subject_3", "ultra_subject_4","ultra_subject_5", "ultra_subject_6", "ultra_subject_7", "ultra_subject_8","ultra_subject_9", "ultra_subject_10", "ultra_subject_11", "ultra_subject_12"
+                    ,"surf_AMOAS01", "surf_AMOAS02", "surf_AMOAS03", "surf_AMOAS04", "surf_AMOAS05","surf_AMOAS06", "surf_AMOAS07", "surf_AMOAS08", "surf_AMOAS09", "surf_AMOAS010","surf_AMOAS011", "surf_AMOAS012", "surf_AMOAS013", "surf_AMOAS014", "surf_AMOAS015","surf_AMOAS016", "surf_AMOAS017", "surf_AMOAS018"],
+  "test_subjects": ["ultra_subject_13","surf_AMOAS019"],
+  "lopo_subjects": ["ultra_subject_1", "ultra_subject_2", "ultra_subject_3", "ultra_subject_4","ultra_subject_5", "ultra_subject_6", "ultra_subject_7", "ultra_subject_8","ultra_subject_9", "ultra_subject_10", "ultra_subject_11", "ultra_subject_12", "ultra_subject_13",
+    "surf_AMOAS01", "surf_AMOAS02", "surf_AMOAS03", "surf_AMOAS04", "surf_AMOAS05","surf_AMOAS06", "surf_AMOAS07", "surf_AMOAS08", "surf_AMOAS09", "surf_AMOAS010","surf_AMOAS011", "surf_AMOAS012", "surf_AMOAS013", "surf_AMOAS014", "surf_AMOAS015","surf_AMOAS016", "surf_AMOAS017", "surf_AMOAS018", "surf_AMOAS019"],
+  
+  "train_activity": ["AS", "CB", "EF", "ER", "OR","picking_up_pen", "shelve_ordering"],
+  "test_activity": ["AS", "CB", "EF", "ER", "OR","picking_up_pen", "shelve_ordering"],
+  "train_activity_speed": [ "N", "180", "90", "M", "N/A"],
+  "test_activity_speed": [ "N", "180", "90", "M", "N/A"],
+  "train_activity_speed2": ["F", "N", "S", "VF", "180", "90", "M", "N/A"],
+  "test_activity_speed2": ["F", "N", "S", "VF", "180", "90", "M", "N/A"],
+
+  "device": "cuda",
+  "model_name": "hernandez2021cnnlstm",
+  "training_style": "lopo",
+
+  "classification": false,
+  "optimizer_name": "Adam",
+  "l2_weight_decay_status": true,
+  "l2_weight_decay": 0.001,
+
+  "bilstm_hidden_size": 64,
+  "bilstm_num_layers": 3,
+  "bilstm_dropout_p": 0.5,
+  "output_size1": 1600,
+
+  "tsai_d_model": 128,
+  "tsai_n_heads": 16,
+  "tsai_d_ff": 256,
+  "tsai_n_layers": 3,
+  "tsai_res_dropout_p": 0.5,
+  "tsai_fc_dropout_p": 0.5,
+
+  "learning_rate": 0.001,
+  "n_epoch": 100,
+  "batch_size": 32,
+  "loss": "MSE",
+  "loss_weight": [1,1,1,1,1,1,1,1,1,1],
+  "nfold": 5
+
+}
